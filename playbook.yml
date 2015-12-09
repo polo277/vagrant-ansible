@@ -16,4 +16,5 @@
        command: chdir=/tmp/node-v0.10.32-linux-x86/bin ./npm install -g express
      - name: instalando express generator
        command: chdir=/tmp/node-v0.10.32-linux-x86/bin ./npm install -g express-generator
-
+     - name: instalando npm mongodb
+       command: chdir=/tmp/node-v0.10.32-linux-x86/bin ./npm install -g mongodb
