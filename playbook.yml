@@ -1,0 +1,19 @@
+---
+- hosts: all
+  sudo: True
+  user: vagrant
+
+  tasks: 
+     - name: update
+       apt: update_cache=yes
+     - name: install mongodb
+       apt: name=mongodb state=present
+     - name: descargando node
+       get_url: url=http://nodejs.org/dist/v0.10.32/node-v0.10.32-linux-x86.tar.gz dest=/tmp
+     - name: descomprimiendo node
+       command: chdir=/tmp creates=node-v0.10.32-linux-x86 tar -xzf node-v0.10.32-linux-x86.tar.gz
+     - name: instalando express
+       command: chdir=/tmp/node-v0.10.32-linux-x86/bin ./npm install -g express
+     - name: instalando express generator
+       command: chdir=/tmp/node-v0.10.32-linux-x86/bin ./npm install -g express-generator
+
