@@ -9,12 +9,12 @@
      - name: install mongodb
        apt: name=mongodb state=present
      - name: descargando node
-       get_url: url=http://nodejs.org/dist/v0.10.32/node-v0.10.32-linux-x86.tar.gz dest=/tmp
+       get_url: url=http://nodejs.org/dist/v0.10.32/node-v0.10.32-linux-x86.tar.gz dest=/opt
      - name: descomprimiendo node
-       command: chdir=/tmp creates=node-v0.10.32-linux-x86 tar -xzf node-v0.10.32-linux-x86.tar.gz
+       command: chdir=/opt creates=node-v0.10.32-linux-x86 tar -xzf node-v0.10.32-linux-x86.tar.gz
      - name: instalando express
-       command: chdir=/tmp/node-v0.10.32-linux-x86/bin ./npm install -g express
+       command: chdir=/opt/node-v0.10.32-linux-x86/bin ./npm install -g express
      - name: instalando express generator
-       command: chdir=/tmp/node-v0.10.32-linux-x86/bin ./npm install -g express-generator
+       command: chdir=/opt/node-v0.10.32-linux-x86/bin ./npm install -g express-generator
      - name: instalando npm mongodb
-       command: chdir=/tmp/node-v0.10.32-linux-x86/bin ./npm install -g mongodb
+       command: chdir=/opt/node-v0.10.32-linux-x86/bin ./npm install -g mongodb
